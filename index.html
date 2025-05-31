@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chetan Bharshetty - Student Portfolio</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#818CF8'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif, ;
+}
+.hero-section {
+background-image: linear-gradient(rgba(0, 0, 0, 0.338), rgba(0, 0, 0, 0.7));
+background-size: cover;
+background-position: center;
+background-color: midnightblue;
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: "";
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -4px;
+left: 0;
+background-color: #6b77ff;
+transition: width 0.3s;
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.portfolio-item {
+overflow: hidden;
+}
+.portfolio-item img {
+transition: transform 0.5s;
+}
+.portfolio-item:hover img {
+transform: scale(1.05);
+}
+.portfolio-overlay {
+background: rgba(107, 139, 255, 0.9);
+opacity: 0;
+transition: opacity 0.3s;
+}
+.portfolio-item:hover .portfolio-overlay {
+opacity: 1;
+}
+.service-card {
+transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.service-icon {
+transition: background-color 0.3s, color 0.3s;
+}
+.service-card:hover .service-icon {
+background-color: #ff6b6b;
+color: white;
+}
+.team-social {
+transition: opacity 0.3s, transform 0.3s;
+opacity: 0;
+transform: translateY(10px);
+}
+.team-card:hover .team-social {
+opacity: 1;
+transform: translateY(0);
+}
+.fixed-header {
+transition: background-color 0.3s;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #ff6b6b;
+}
+.custom-checkbox {
+display: none;
+}
+.custom-checkbox-label {
+position: relative;
+padding-left: 30px;
+cursor: pointer;
+}
+.custom-checkbox-label:before {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+width: 20px;
+height: 20px;
+border: 2px solid #ddd;
+border-radius: 4px;
+transition: all 0.3s;
+}
+.custom-checkbox:checked + .custom-checkbox-label:before {
+background-color: #ff6b6b;
+border-color: #ff6b6b;
+}
+.custom-checkbox:checked + .custom-checkbox-label:after {
+content: '\2713';
+position: absolute;
+left: 5px;
+top: -1px;
+color: white;
+font-size: 14px;
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<header class="fixed-header fixed w-full z-50 transition-all duration-300" id="header">
+<div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<a href="#" class="text-3xl font-['Pacifico'] text-white">My Portfolio-Overlay</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#home" class="nav-link text-white hover:text-primary transition-colors">Home</a>
+<a href="#skills" class="nav-link text-white hover:text-primary transition-colors">Skills</a></li>
+<a href="#projects" class="nav-link text-white hover:text-primary transition-colors">Projects</a></li>
+<a href="#contact" class="nav-link text-white hover:text-primary transition-colors">Contact</a>
+<a href="#" class="ml-4 bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Get Started</a>
+</nav>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-white">
+<i class="ri-menu-line ri-2x"></i>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-indigo-50 py-20">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="text-left">
+<h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">Hi, I'm Chetan Bharshetty<br>Computer Science & Engineering Student</h1>
+<p class="text-xl mb-8 text-gray-600">A passionate developer and problem solver, focusing on web development , SQL Database and Python full-stack development.</p>
+<div class="flex flex-wrap gap-4">
+<a href="#projects" class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap font-medium">View Projects</a>
+<a href="#contact" class="border-2 border-primary text-primary px-8 py-3 !rounded-button hover:bg-primary hover:text-white transition-all whitespace-nowrap font-medium">Get in Touch</a>
+</div>
+<div class="flex gap-4 mt-8">
+<a href="https://github.com/ChetanBharshetty" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-github-fill"></i>
+</a>
+<a href="https://www.linkedin.com/in/chetan-bharshetty-31b355246" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="https://www.instagram.com/chetanbharshetty/" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="https://x.com/CBharshetty?t=Dh9S9bB43u64Sd0_ZzWsPQ&s=09" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-twitter-fill"></i>
+</a>
+</div>
+</div>
+<div class="relative">
+<img src="729647e0-70e9-4b06-9397-71725480fe1d.jpg" alt="Chetan Bharshetty" class="w-90 h-90 rounded-2xl shadow-lg">
+<div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+<div class="text-primary font-semibold">Currently Working On:</div>
+<div class="text-gray-600">web development and Python full-stack development</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">Skills & Expertise</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">A combination of technical skills and creative problem-solving abilities</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Technical Skills -->
+<div class="bg-gray-50 p-8 rounded-lg">
+<div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mx-auto mb-6">
+<i class="ri-code-s-slash-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-6 text-center">Technical Skills</h3>
+<ul class="space-y-4">
+<li class="flex items-center justify-between">
+<span class="text-gray-700">Python</span>
+<div class="w-1/2 h-2 bg-gray-200 rounded-full">
+<div class="w-[90%] h-full bg-primary rounded-full"></div>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-gray-700">SQL</span>
+<div class="w-1/2 h-2 bg-gray-200 rounded-full">
+<div class="w-[80%] h-full bg-primary rounded-full"></div>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-gray-700">HTML5</span>
+<div class="w-1/2 h-2 bg-gray-200 rounded-full">
+<div class="w-[80%] h-full bg-primary rounded-full"></div>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-gray-700">CSS</span>
+<div class="w-1/2 h-2 bg-gray-200 rounded-full">
+<div class="w-[80%] h-full bg-primary rounded-full"></div>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-gray-700">JavaScript</span>
+<div class="w-1/2 h-2 bg-gray-200 rounded-full">
+<div class="w-[65%] h-full bg-primary rounded-full"></div>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-gray-700">React.js</span>
+<div class="w-1/2 h-2 bg-gray-200 rounded-full">
+<div class="w-[60%] h-full bg-primary rounded-full"></div>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-gray-700">tailwindcss</span>
+<div class="w-1/2 h-2 bg-gray-200 rounded-full">
+<div class="w-[85%] h-full bg-primary rounded-full"></div>
+</div>
+</li>
+<li class="flex items-center justify-between">
+    <span class="text-gray-700">Bootstrap</span>
+    <div class="w-1/2 h-2 bg-gray-200 rounded-full">
+    <div class="w-[75%] h-full bg-primary rounded-full"></div>
+    </div>
+    </li>
+</ul>
+</div>
+<!-- Soft Skills -->
+<div class="bg-gray-50 p-8 rounded-lg">
+<div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mx-auto mb-6">
+<i class="ri-team-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-6 text-center">Soft Skills</h3>
+<ul class="space-y-4">
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-3"></i>
+<span class="text-gray-700">Problem Solving</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-3"></i>
+<span class="text-gray-700">Teamwork and Collaboration</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-3"></i>
+<span class="text-gray-700">Positive Attitude</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-3"></i>
+<span class="text-gray-700">Quick Learner</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-3"></i>
+<span class="text-gray-700">Team Leadership</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-3"></i>
+<span class="text-gray-700">Project Management</span>
+</li>
+<li class="flex items-center">
+<i class="ri-check-line text-primary mr-3"></i>
+<span class="text-gray-700">Good Communication</span>
+</li>
+</ul>
+</div>
+<!-- Education -->
+<div class="bg-gray-50 p-8 rounded-lg">
+<div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mx-auto mb-6">
+<i class="ri-graduation-cap-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-6 text-center">Education</h3>
+<div class="space-y-6">
+<div>
+<h4 class="font-semibold text-gray-900">Atria Institute of Technology , Bengaluru</h4>
+<p class="text-primary">BE - Computer Science and Engineering</p>
+<p class="text-gray-600">2020 - 2024</p>
+<p class="text-sm text-gray-600 mt-2">CGPA: 7.6/10 </p>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900">Relevant Coursework</h4>
+<ul class="text-gray-600 text-sm mt-2 space-y-1">
+<li>• Python full-stack Development</li>
+<li>• Introduction to Python Programmimg </li>
+<li>• SQL Database [MySQL]</li>
+<li>• Web Development</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</section>
+<!-- Projects Section -->
+<section id="projects" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">A selection of my academic and personal projects showcasing my skills and interests</p>
+</div>
+<!-- Project Filter -->
+<div class="flex flex-wrap justify-center mb-12">
+<button class="portfolio-filter-btn m-2 px-6 py-2 bg-primary text-white !rounded-button">SHOW All</button>
+</div>
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<img src="home_page.png" alt="Travel-Management System" class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Travel-Management System</h3>
+<p class="text-gray-600 mb-4">Travel-Management System will record the entire journey of the customer, as well as provide the customer with services and assist them throughout the journey</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">MySQL</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">Xampp</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">Web Technologies[HTML5 & CSS]</span>
+</div>
+<div class="flex justify-between items-center">
+<a href="#" class="text-primary hover:text-primary-dark transition-colors">View Project</a>
+<div class="flex space-x-2">
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-github-line"></i>
+</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-external-link-line"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<img src="istockphoto-104731717-612x612-1.jpg" alt="Health Tracking App" class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Hotel Booking Web-Application</h3>
+<p class="text-gray-600 mb-4">Hotel booking websites are a combination of web development and online booking systems, allowing users to search for, compare, and book accommodations online. These websites typically feature a user-friendly interface for searching by location, dates, and amenities, as well as booking and payment processing features.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">HTML5</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">CSS</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">JavaScript</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">Bootstrap-css</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">MySQL Database</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">Python</span>
+</div>
+<div class="flex justify-between items-center">
+<a href="#" class="text-primary hover:text-primary-dark transition-colors">View Project</a>
+<div class="flex space-x-2">
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-github-line"></i>
+</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-external-link-line"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<img src="images.jpg" alt="EV Charging Station Finding" class="w-full h-48 object-cover">
+
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Finding nearby charging stations and slot booking for EV vehicles</h3>
+<p class="text-gray-600 mb-4"> EV Charging Station App has been developed to help EV drivers locate available charging stations near them. After locating a charging station, users can also book a slot at the station to charge their vehicle.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">Python</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">Web-technologies</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">React js</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">tailwindcss</span>
+<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-sm rounded-full">Django</span>
+</div>
+<div class="flex justify-between items-center">
+<a href="#" class="text-primary  hover:text-primary-dark transition-colors">View Project</a>
+<div class="flex space-x-2">
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-github-line"></i>
+</a>
+<a href="#" class="text-gray-600 hover:text-primary transition-colors">
+<i class="ri-external-link-line"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Contact us today to discuss your ideas and requirements</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Contact Information -->
+<div>
+<h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+<div class="mb-8">
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4 flex-shrink-0">
+<i class="ri-map-pin-line"></i>
+</div>
+<div>
+<h4 class="font-semibold mb-1">Our Location</h4>
+<p class="text-gray-600">Bengaluru</p>
+</div>
+</div>
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4 flex-shrink-0">
+<i class="ri-phone-line"></i>
+</div>
+<div>
+<h4 class="font-semibold mb-1">Phone Number</h4>
+<p class="text-gray-600">+91 (990) 196-7356</p>
+</div>
+</div>
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4 flex-shrink-0">
+<i class="ri-mail-line"></i>
+</div>
+<div>
+<h4 class="font-semibold mb-1">Email Address</h4>
+<p class="text-gray-600">chetanbharshetty024@gmail.com</p>
+</div>
+</div>
+
+</div>
+<!-- Map -->
+<div class="rounded-lg overflow-hidden h-64 bg-cover bg-center" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png')"></div>
+</div>
+<!-- Contact Form -->
+<div>
+<h3 class="text-2xl font-semibold mb-6">Send Us a Message</h3>
+<form>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="name" class="block text-gray-700 mb-2">Your Name</label>
+<input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-0" placeholder="John Doe">
+</div>
+<div>
+<label for="email" class="block text-gray-700 mb-2">Your Email</label>
+<input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-0" placeholder="john@example.com">
+</div>
+</div>
+<div class="mb-6">
+<label for="subject" class="block text-gray-700 mb-2">Subject</label>
+<input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-0" placeholder="Project Inquiry">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-700 mb-2">Your Message</label>
+<textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary focus:ring-0" placeholder="Tell us about your project..."></textarea>
+</div>
+<div class="mb-6">
+<input type="checkbox" id="consent" class="custom-checkbox">
+<label for="consent" class="custom-checkbox-label text-gray-600">I agree to the privacy policy and terms of service</label>
+</div>
+<button type="submit" class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap font-medium">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
+<!-- Quick Links -->
+<div>
+<h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+<ul class="space-y-3">
+<li><a href="#home" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+<li><a href="#skills" class="text-gray-400 hover:text-primary transition-colors">Skills</a></li>
+<li><a href="#projects" class="text-gray-400 hover:text-primary transition-colors">Projects</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">Contact Information</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div>
+<h4 class="text-xl font-semibold mb-6">Newsletter</h4>
+<p class="text-gray-400 mb-6">Subscribe to our newsletter to receive updates on our latest projects.</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="Your email address" class="w-full px-4 py-3 bg-gray-800 border-none text-gray-300 rounded-l focus:outline-none">
+<button type="submit" class="bg-primary text-white px-4 py-3 !rounded-r-button hover:bg-opacity-90 transition-all whitespace-nowrap">Subscribe</button>
+</div>
+</form>
+<div class="flex space-x-4">
+<div class="flex items-center text-gray-400">
+<i class="ri-visa-fill ri-lg mr-2"></i>
+<span>Visa</span>
+</div>
+<div class="flex items-center text-gray-400">
+<i class="ri-mastercard-fill ri-lg mr-2"></i>
+<span>Mastercard</span>
+</div>
+<div class="flex items-center text-gray-400">
+<i class="ri-paypal-fill ri-lg mr-2"></i>
+<span>PayPal</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">© 2025 Videograph. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center opacity-0 invisible transition-all duration-300" id="backToTop">
+<i class="ri-arrow-up-line ri-lg"></i>
+</a>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Fixed Header on Scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 50) {
+header.classList.add('bg-gray-900');
+header.classList.remove('bg-transparent');
+} else {
+header.classList.remove('bg-gray-900');
+header.classList.add('bg-transparent');
+}
+});
+// Back to Top Button
+const backToTopButton = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 300) {
+backToTopButton.classList.remove('opacity-0', 'invisible');
+backToTopButton.classList.add('opacity-100', 'visible');
+} else {
+backToTopButton.classList.add('opacity-0', 'invisible');
+backToTopButton.classList.remove('opacity-100', 'visible');
+}
+});
+backToTopButton.addEventListener('click', function(e) {
+e.preventDefault();
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Testimonial Slider
+const testimonialSlides = document.getElementById('testimonialSlides');
+const testimonialDots = document.querySelectorAll('.testimonial-dot');
+const prevButton = document.getElementById('prevTestimonial');
+const nextButton = document.getElementById('nextTestimonial');
+let currentSlide = 0;
+const slideWidth = 100; // percentage
+const totalSlides = testimonialDots.length;
+function goToSlide(index) {
+if (index < 0) index = totalSlides - 1;
+if (index >= totalSlides) index = 0;
+currentSlide = index;
+const offset = -currentSlide * slideWidth;
+testimonialSlides.style.transform = `translateX(${offset}%)`;
+// Update dots
+testimonialDots.forEach((dot, i) => {
+if (i === currentSlide) {
+dot.classList.add('bg-primary');
+dot.classList.remove('bg-gray-300');
+} else {
+dot.classList.remove('bg-primary');
+dot.classList.add('bg-gray-300');
+}
+});
+}
+prevButton.addEventListener('click', () => {
+goToSlide(currentSlide - 1);
+});
+nextButton.addEventListener('click', () => {
+goToSlide(currentSlide + 1);
+});
+testimonialDots.forEach((dot, index) => {
+dot.addEventListener('click', () => {
+goToSlide(index);
+});
+});
+// Auto slide
+let slideInterval = setInterval(() => {
+goToSlide(currentSlide + 1);
+}, 5000);
+// Pause on hover
+
+testimonialContainer.addEventListener('mouseleave', () => {
+slideInterval = setInterval(() => {
+goToSlide(currentSlide + 1);
+}, 5000);
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Portfolio Filter
+const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+filterButtons.forEach(button => {
+button.addEventListener('click', function() {
+// Remove active class from all buttons
+filterButtons.forEach(btn => {
+btn.classList.remove('bg-primary', 'text-white');
+btn.classList.add('bg-white', 'text-gray-700');
+});
+// Add active class to clicked button
+this.classList.remove('bg-white', 'text-gray-700');
+this.classList.add('bg-primary', 'text-white');
+// Here you would typically filter the portfolio items
+// For this demo, we're just changing the button styles
+});
+});
+});
+</script>
+</body>
+</html> 
